@@ -1,0 +1,29 @@
+package LAB12;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class CustomComparatorQueue {
+    public static void main(String[] args) {
+        Comparator<String> lengthComparator = new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return Integer.compare(s1.length(), s2.length());
+            }
+        };
+
+        PriorityQueue<String> wordQueue = new PriorityQueue<>(lengthComparator);
+        wordQueue.add("computer");
+        wordQueue.add("brother");
+        wordQueue.add("mother");
+        wordQueue.add("football");
+        wordQueue.add("euro");
+        wordQueue.add("Portugal");
+
+        System.out.println("Элементы PriorityQueue по длине:");
+        while (!wordQueue.isEmpty()) {
+            System.out.println(wordQueue.poll());
+        }
+    }
+}
+
